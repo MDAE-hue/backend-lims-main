@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>LIMS API Documentation</title>
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+</head>
+
+<body>
+    <div id="swagger-ui"></div>
+
+    <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"></script>
+    <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js"></script>
+    <script>
+        const ui = SwaggerUIBundle({
+            url: "api.yaml", // path ke file YAML gabungan user + role API
+            dom_id: '#swagger-ui',
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+            ],
+            layout: "StandaloneLayout",
+            // Aktifkan support bearer token
+            requestInterceptor: (req) => {
+                // Ambil token dari localStorage (opsional)
+                const token = localStorage.getItem('jwt_token');
+                if (token) {
+                    req.headers['Authorization'] = `Bearer ${token}`;
+                }
+                return req;
+            }
+        });
+
+        // Optional: bisa simpan token dari popup Authorize ke localStorage
+        window.ui = ui;
+    </script>
+</body>
+
+</html>
