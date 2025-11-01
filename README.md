@@ -1,6 +1,6 @@
-# LIMS Backend - PT Kaltim Parna Industri
+# LIMS Backend
 
-**Laboratory Information Management System (LIMS)** untuk PT Kaltim Parna Industri.  
+**Laboratory Information Management System (LIMS)**.  
 Backend ini menyediakan API dan logika bisnis untuk manajemen laboratorium, laporan, persetujuan, penerbitan COA, dan audit trail.
 
 ---
